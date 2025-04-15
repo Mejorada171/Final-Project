@@ -7,14 +7,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="country-nav">
+    <button onclick="selectCountry('Mexico')">Mexico</button>
+    <button onclick="selectCountry('USA')">USA</button>
+    <button onclick="selectCountry('China')">China</button>
+    <button onclick="selectCountry('Brazil')">Brazil</button>
+    <button onclick="selectCountry('Australia')">Australia</button>
+    <button onclick="selectCountry('Russia')">Russia</button>
+  </nav>
+
+  <div id="citySelector" class="city-selector hidden"></div>
+
   <div class="container">
     <h1>Weather Forecast</h1>
     <input type="text" id="cityInput" placeholder="Enter city name" />
     <button onclick="getWeather()">Get Weather</button>
-    <div id="weatherResult" class="weather-box">
-    </div>
+    <div id="weatherResult" class="weather-box"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+

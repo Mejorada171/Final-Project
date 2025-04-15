@@ -32,3 +32,34 @@ async function getWeather() {
     }
   }
   
+  function selectCountry(countryName) {
+    document.getElementById("cityInput").value = countryName;
+    getWeather();
+  }
+  
+  const topCities = {
+    Mexico: ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Tijuana", "Cancún", "León", "Mérida", "Toluca", "Chihuahua"],
+    USA: ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"],
+    China: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Wuhan", "Hangzhou", "Xi'an", "Tianjin", "Nanjing"],
+    Brazil: ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador", "Fortaleza", "Belo Horizonte", "Manaus", "Curitiba", "Recife", "Porto Alegre"],
+    Australia: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra", "Gold Coast", "Newcastle", "Hobart", "Darwin"],
+    Russia: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Kazan", "Nizhny Novgorod", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"]
+  };
+  
+  function selectCountry(countryName) {
+    const selector = document.getElementById("citySelector");
+    selector.innerHTML = "";
+    selector.classList.remove("hidden");
+  
+    topCities[countryName].forEach(city => {
+      const btn = document.createElement("button");
+      btn.textContent = city;
+      btn.onclick = () => {
+        document.getElementById("cityInput").value = city;
+        selector.classList.add("hidden");
+        getWeather();
+      };
+      selector.appendChild(btn);
+    });
+  }
+  
