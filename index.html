@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get real-time weather forecasts for cities worldwide.">
+  <meta name="keywords" content="weather, forecast, temperature, city, flags">
+  <meta name="author" content="Jorge Mejorada">
   <title>Weather Forecast App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="country-nav">
+  <nav class="country-nav" aria-label="Select Country">
     <button onclick="selectCountry('Mexico')">Mexico</button>
     <button onclick="selectCountry('USA')">USA</button>
     <button onclick="selectCountry('China')">China</button>
@@ -16,16 +19,16 @@
     <button onclick="selectCountry('Russia')">Russia</button>
   </nav>
 
-  <div id="citySelector" class="city-selector hidden"></div>
+  <div id="citySelector" class="city-selector hidden" aria-live="polite"></div>
 
-  <div class="container">
+  <main class="container">
     <h1>Weather Forecast</h1>
+    <label for="cityInput" class="visually-hidden">Enter city name</label>
     <input type="text" id="cityInput" placeholder="Enter city name" />
-    <button onclick="getWeather()">Get Weather</button>
-    <div id="weatherResult" class="weather-box"></div>
-  </div>
+    <button id="getWeatherBtn">Get Weather</button>
+    <section id="weatherResult" class="weather-box" aria-live="polite"></section>
+  </main>
 
-  <script src="script.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
-
